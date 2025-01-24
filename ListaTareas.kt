@@ -6,17 +6,14 @@ class ListaTareas() {
         println("¡Tarea agregada con éxito!")
     }
 
-    fun eliminarTarea(identificador:Int):Boolean{
-        var eliminada = false
-        var contador = -1
-        for(tarea in tareas){
-            contador++
-            if(tarea.identificador == identificador){
-                tareas.removeAt(contador)
-                eliminada = true
+    fun eliminarTarea(identificador: Int): Boolean {
+        for (i in tareas.size - 1 downTo 0) {
+            if (tareas[i].identificador == identificador) {
+                tareas.removeAt(i)
+                return true
             }
         }
-        return eliminada
+        return false
     }
 
     private fun mostrarEstados(estado:String){

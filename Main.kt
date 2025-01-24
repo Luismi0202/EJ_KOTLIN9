@@ -41,15 +41,14 @@ fun pedirMensaje(msj:String):String{
     return readln().toString()
 }
 
-fun pedirIdentificador():Int{
+fun pedirIdentificador(msj:String):Int{
     var numValido = true
     var numero = 0
     do{
         try {
             numValido = true
             println("Ingresa un número de identificación para su tarea")
-            println("0 SI RANDOM")
-            print(">> ")
+            print(msj)
             numero = readln().toInt()
         }catch(e: IllegalArgumentException){
             println("¡Error! Numero inválido. Vuelva a introducir")
@@ -74,17 +73,17 @@ fun main(){
         when(opcion){
             1-> {
                 limpiarPantalla()
-                lista.agregarTarea(Tarea(pedirMensaje("la descripcion"),pedirIdentificador()))
+                lista.agregarTarea(Tarea(pedirMensaje("la descripcion"),pedirIdentificador("0 SI RANDOM >> ")))
                 Thread.sleep(2000)
             }
             2-> {
                 limpiarPantalla()
-                println(if (lista.eliminarTarea(pedirIdentificador())) "¡Tarea eliminada!" else "Tarea no encontrada")
+                println(if (lista.eliminarTarea(pedirIdentificador(">> "))) "¡Tarea eliminada!" else "Tarea no encontrada")
                 Thread.sleep(2000)
             }
             3-> {
                 limpiarPantalla()
-                lista.cambiarEstado(pedirIdentificador())
+                lista.cambiarEstado(pedirIdentificador(">> "))
                 Thread.sleep(2000)
             }
             4-> {
