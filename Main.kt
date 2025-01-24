@@ -37,7 +37,7 @@ fun pedirOpcion():Int{
 
 fun pedirMensaje(msj:String):String{
     println("Dame $msj de su tarea")
-    println(">> ")
+    print(">> ")
     return readln().toString()
 }
 
@@ -48,7 +48,8 @@ fun pedirIdentificador():Int{
         try {
             numValido = true
             println("Ingresa un número de identificación para su tarea")
-            println(">> ")
+            println("0 SI RANDOM")
+            print(">> ")
             numero = readln().toInt()
         }catch(e: IllegalArgumentException){
             println("¡Error! Numero inválido. Vuelva a introducir")

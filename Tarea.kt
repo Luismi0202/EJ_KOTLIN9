@@ -19,7 +19,9 @@ class Tarea(
     }
 
     constructor(descripcion: String, identificador: Int):this(descripcion){
-        this.identificador = identificador
+        if(identificador != 0){
+            this.identificador = identificador
+        }
     }
 
     override fun toString(): String {
